@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" -printf "%f\n" | sed 's/\.gif$//' | LC_ALL=C sort -f
+for f in $(find . -type f -name "*.gif" -print); do echo "${f##*/}" | cut -d. -f1; done | LC_ALL=C sort -f
