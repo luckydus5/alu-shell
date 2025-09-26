@@ -1,0 +1,14 @@
+total 48
+4 -rwxrwxr-x 1 luckdus luckdus   32 Sep 26 08:01 0-hello_world
+4 -rwxrwxr-x 1 luckdus luckdus   28 Sep 26 08:22 1-confused_smiley
+4 -rwxrwxr-x 1 luckdus luckdus   28 Sep 26 09:58 2-hellofile
+4 -rwxrwxr-x 1 luckdus luckdus   39 Sep 26 10:15 3-twofiles
+4 -rwxrwxr-x 1 luckdus luckdus   35 Sep 26 10:17 4-lastlines
+4 -rwxrwxr-x 1 luckdus luckdus   35 Sep 26 10:20 5-firstlines
+4 -rwxrwxr-x 1 luckdus luckdus   40 Sep 26 10:39 6-third_line
+4 -rwxrwxr-x 1 luckdus luckdus   89 Sep 26 11:36 7-file
+4 -rwxrwxr-x 1 luckdus luckdus   36 Sep 26 11:41 8-cwd_state
+4 -rw-rw-r-- 1 luckdus luckdus   12 Sep 26 11:36 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+4 -rw-rw-r-- 1 luckdus luckdus  127 Sep 26 10:40 iacta
+0 -rw-rw-r-- 1 luckdus luckdus    0 Sep 26 11:42 ls_cwd_content
+4 -rw-rw-r-- 1 luckdus luckdus 1891 Sep 26 08:13 README.md
