@@ -1,249 +1,333 @@
-Shell, init files, variables and expansions
+# 🐚 Shell, Init Files, Variables and Expansions
 
-By: Julien Barbier
-Weight: 1
-Project Duration: Sep 13, 2025 → Sep 26, 2025
+**Author:** Olivier Dusabamahor  
+**Purpose:** Personal documentation & tracker of what I’ve learned and practiced in Bash scripting.
 
-📚 Resources
+---
+
+## 📚 Resources
 
 Read or watch:
 
-Expansions
+- Expansions  
+- Shell Arithmetic  
+- Variables  
+- Shell initialization files  
+- The alias Command  
+- Technical Writing  
 
-Shell Arithmetic
+**man or help:**
 
-Variables
+- `printenv`  
+- `set`  
+- `unset`  
+- `export`  
+- `alias`  
+- `unalias`  
+- `.` (dot command)  
+- `source`  
+- `printf`  
 
-Shell initialization files
+---
 
-The alias Command
+## 🎯 Learning Objectives
 
-Technical Writing basics
+At the end of this project, I should be able to explain to anyone (without Google):
 
-Man or help:
-printenv, set, unset, export, alias, unalias, ., source, printf
+### General
+- What happens when you type `$ ls -l *.txt`
 
-🎯 Learning Objectives
+### Shell Initialization Files
+- What are the `/etc/profile` file and the `/etc/profile.d` directory  
+- What is the `~/.bashrc` file  
 
-By the end of this project, you should be able to explain (without Google):
+### Variables
+- What is the difference between a local and a global variable  
+- What is a reserved variable  
+- How to create, update and delete shell variables  
+- Roles of the following reserved variables: `HOME`, `PATH`, `PS1`  
+- What are special parameters  
+- What is the special parameter `$?`  
 
-General
+### Expansions
+- What is expansion and how to use it  
+- Difference between single and double quotes, and how to use them properly  
+- How to do command substitution with `$()` and backticks  
 
-What happens when you type:
+### Shell Arithmetic
+- How to perform arithmetic operations with the shell  
 
-ls -l *.txt
+### The alias Command
+- How to create an alias  
+- How to list aliases  
+- How to temporarily disable an alias  
 
+### Other help pages
+- How to execute commands from a file in the current shell  
 
-→ The shell expands *.txt (globbing), then executes /bin/ls with arguments.
+---
 
-Shell Initialization Files
+## ⚙️ Requirements
 
-/etc/profile and /etc/profile.d → System-wide login shell configs
+- Allowed editors: `vi`, `vim`, `emacs`  
+- Scripts will be tested on **Ubuntu 20.04 LTS**  
+- Scripts must be exactly **two lines long** (`$ wc -l file` should print 2)  
+- All files must end with a **new line**  
+- First line of all files:  
+  ```bash
+  #!/bin/bash
 
-~/.bashrc → User-specific non-login shell config
 
-Variables
+🟢 Section 2: Beginner Practice Projects (Level 1–50)
 
-Local vs Global variables
+Short 2–10 line scripts to build fundamentals.
 
-Reserved variables (HOME, PATH, PS1)
+File Operations
 
-Special parameters ($?, $#, $*, $@)
+ Create a file named myfile.txt
 
-Create, update, delete shell variables
+ Append “Hello World” to myfile.txt
 
-Expansions
+ Print the number of lines in a file
 
-Word, pathname, arithmetic, variable, and command expansions
+ Display only the first 5 lines of /etc/passwd
 
-Quotes: single ' ' vs double " "
+ Display the last 10 lines of a log file
 
-Command substitution: `cmd` or $(cmd)
+Permissions & Ownership
 
-Shell Arithmetic
+ Create a script that makes a file read-only
 
-$((expression)) syntax
+ Change ownership of a file to another user
 
-Operators: + - * / % **
+ Give execute permission only to the owner
 
-Aliases
+ Remove all permissions for “others”
 
-Create: alias name='command'
+ Find all .sh files in the current directory and make them executable
 
-List: alias
+Variables & Expansion
 
-Disable: \command or unalias name
+ Print your $USER
 
-Other Help Pages
+ Create and print a local variable
 
-Execute commands from a file: . file or source file
+ Export a global variable
 
-⚙️ Requirements
+ Show the value of $HOME and $PATH
 
-Editors: vi, vim, emacs
+ Demonstrate difference between ' ' and " "
 
-Scripts tested on Ubuntu 20.04 LTS
+Redirection & Pipes
 
-Each script = 2 lines only
+ Redirect stdout to a file
 
-Files must end with a newline
+ Redirect stderr to a file
 
-First line = #!/bin/bash
+ Combine stdout and stderr into one file
 
-README.md must describe each script
+ Count the number of words in /etc/passwd
 
-Forbidden: &&, ||, ;, bc, sed, awk
+ Extract usernames from /etc/passwd
 
-All files executable
+Simple Loops
 
-📂 Project Tasks & Solutions
-0. Alias
+ Print numbers 1–10
 
-File: 0-alias
-Create alias ls='rm *'
+ Print even numbers up to 20
 
-#!/bin/bash
-alias ls='rm *'
+ Print the multiplication table of 5
 
-1. Hello you
+ Loop through files in a directory and print names
 
-File: 1-hello_you
-Print: hello <current_user>
+ Print “hello” 100 times using a loop
 
-#!/bin/bash
-echo "hello $USER"
+🟡 Section 3: Intermediate Projects (Level 51–120)
 
-2. The path to success
+Scripts with logic, automation, and text processing.
 
-File: 2-path
-Add /action to the end of PATH.
+System Monitoring
 
-#!/bin/bash
-export PATH="$PATH:/action"
+ Display system uptime
 
-3. Count directories in PATH
+ Show current logged-in users
 
-File: 3-paths
+ Display top 10 processes by memory usage
 
-#!/bin/bash
-echo $PATH | tr ':' '\n' | wc -l
+ Check disk usage of /home
 
-4. Global variables
+ Monitor CPU usage every 5 seconds
 
-File: 4-global_variables
+Text Processing
 
-#!/bin/bash
-printenv
+ Count unique words in a file
 
-5. Local variables
+ Extract email addresses from a text file
 
-File: 5-local_variables
+ Replace all tabs with 4 spaces
 
-#!/bin/bash
-set
+ Sort lines in a file alphabetically
 
-6. Create local variable
+ Remove duplicate lines from a file
 
-File: 6-create_local_variable
+Scripting Automation
 
-#!/bin/bash
-BEST="School"
+ Backup /etc/passwd to /tmp/passwd.bak
 
-7. Create global variable
+ Compress all .log files in /var/log
 
-File: 7-create_global_variable
+ Create daily timestamped backup of ~/Documents
 
-#!/bin/bash
-export BEST="School"
+ Write a script to clean temporary files (*.swp, *~)
 
-8. True knowledge
+ Create a log-rotating script that keeps only last 5 logs
 
-File: 8-true_knowledge
+Math & Arithmetic
 
-#!/bin/bash
-echo $((TRUEKNOWLEDGE+128))
+ Calculate factorial of a number
 
-9. Divide and rule
+ Generate Fibonacci series up to N
 
-File: 9-divide_and_rule
+ Add all numbers from 1 to N
 
-#!/bin/bash
-echo $((POWER/DIVIDE))
+ Check if a number is prime
 
-10. Exponent of breath
+ Convert Celsius to Fahrenheit
 
-File: 10-love_exponent_breath
+Control Flow
 
-#!/bin/bash
-echo $((BREATH**LOVE))
+ Check if a file exists
 
-11. Binary to Decimal
+ Check if a number is positive, negative, or zero
 
-File: 11-binary_to_decimal
+ Print grade from marks (if/else ladder)
 
-#!/bin/bash
-echo $((2#$BINARY))
+ Case statement: print day of the week from number
 
-12. Combinations
+ Nested loops: print multiplication table 1–10
 
-File: 12-combinations
+🔴 Section 4: Advanced Projects (Level 121–200)
 
-#!/bin/bash
-echo {a..z}{a..z} | tr ' ' '\n' | grep -v "oo"
+Real-world level scripting.
 
-13. Floats
+Process & Job Control
 
-File: 13-print_float
+ Find zombie processes
 
-#!/bin/bash
-printf "%.2f\n" $NUM
+ Kill a process by name
 
-14. Decimal to Hexadecimal
+ Monitor a process and restart if it stops
 
-File: 14-decimal_to_hexadecimal
+ Print parent PID of a process
 
-#!/bin/bash
-printf "%x\n" $DECIMAL
+ Log all background jobs into a file
 
-15. ROT13 Encryption
+Networking
 
-File: 15-rot13
+ Ping a host and save results
 
-#!/bin/bash
-tr 'A-Za-z' 'N-ZA-Mn-za-m'
+ Check if a website is reachable (HTTP 200)
 
-16. Odd lines
+ Download a file using curl or wget
 
-File: 16-odd
+ Extract all URLs from a webpage
 
-#!/bin/bash
-sed -n 'p;n'
+ Monitor open ports with netstat or ss
 
-17. Water and Stir (Base conversions)
+Security & Users
 
-File: 17-water_and_stir
+ List all users on the system
 
-#!/bin/bash
-echo $(( $(echo $WATER | tr water 01234) + $(echo $STIR | tr stir. 01234) )) | tr 0123456789 bestchol
+ Check if a user exists
 
-🔑 Extra Techniques Learned
+ Create a new user with default password
 
-Using tr for text transformation and encoding
+ Lock and unlock a user account
 
-Using printf for formatting (hex, float, etc.)
+ Monitor failed login attempts from logs
 
-Understanding base conversion in bash (2#, printf %x)
+File Systems & Backups
 
-Using brace expansion {a..z}
+ Create an incremental backup script with rsync
 
-Using pipes to chain commands efficiently
+ Mount and unmount a partition
 
-How to disable an alias temporarily with \command
+ Check filesystem usage (df, du)
+
+ Find the 10 largest files in /home
+
+ Monitor changes to /etc/passwd
+
+Advanced Text/Data Processing
+
+ Parse CSV file and print column 1
+
+ Convert CSV → JSON using jq
+
+ Search a log file for IP addresses
+
+ Find all lines with numbers in a text file
+
+ Extract lines between two patterns
+
+Automation & APIs
+
+ Send an email from bash
+
+ Fetch weather data from an API with curl
+
+ Check GitHub repo stars with curl
+
+ Automate pushing commits to GitHub
+
+ Monitor website SSL certificate expiry
+
+Scripting Challenges
+
+ Implement a simple calculator (add/sub/mul/div)
+
+ Build a todo list manager in bash
+
+ Write a number guessing game
+
+ Implement a rock-paper-scissors game
+
+ Password generator script
+
+ Brute force zip password cracker with fcrackzip
+
+ Automate system updates (apt update && apt upgrade)
+
+ Build your own ls using for loop and stat
+
+ Build your own cat with while read
+
+ Shell-based “chat” program using named pipes
+
+🎓 Learning Path
+
+Level 1–50 → Build confidence with basics (redirection, variables, loops)
+
+Level 51–120 → Text processing, system monitoring, automation
+
+Level 121–200 → Real-world scripting (processes, networking, APIs, security)
 
 ✅ Conclusion
 
-This project teaches core Bash fundamentals: environment vs local variables, expansions, arithmetic, aliases, initialization files, and simple scripting.
-It strengthens your ability to understand what happens inside the shell when you type commands.
+This README combines the original Julien Barbier project with 150+ practice projects from beginner → advanced.
 
-👉 Repo: alu-shell
-👉 Directory: init_files_variables_and_expansions
+👉 With these exercises, I will master:
+
+Shell basics
+
+Expansions & arithmetic
+
+Redirection & pipes
+
+Variables & environments
+
+Automation scripts
+
+Networking & security scripting
+
+Real-world system administration
