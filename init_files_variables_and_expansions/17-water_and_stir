@@ -1,2 +1,2 @@
 #!/bin/bash
-W=0 A=1 T=2 E=3 R=4 S=0 T2=1 I=2 dot=3 R2=4 SUM=0 OUT=""; for ((i=0;i<${#WATER};i++)); do c=${WATER:i:1}; case $c in w) v=0;;a) v=1;;t) v=2;;e) v=3;;r) v=4;;esac; SUM=$((SUM*5+v)); done; for ((i=0;i<${#STIR};i++)); do c=${STIR:i:1}; case $c in t) v=0;;i) v=1;;.) v=2;;r) v=3;;) v=4;;esac; SUM=$((SUM*5+v)); done; BASE="bestchol"; while ((SUM>0)); do OUT=${BASE:SUM%9:1}$OUT; SUM=$((SUM/9)); done; echo $OUT
+SUM=0; for ((i=0;i<${#WATER};i++)); do case ${WATER:i:1} in w) v=0;;a) v=1;;t) v=2;;e) v=3;;r) v=4;;esac; SUM=$((SUM*5+v)); done; for ((i=0;i<${#STIR};i++)); do case ${STIR:i:1} in t) v=0;;i) v=1;;.) v=2;;r) v=3;;esac; SUM=$((SUM*5+v)); done; OUT=""; BASE="bestchol"; while ((SUM>0)); do OUT=${BASE:SUM%9:1}$OUT; SUM=$((SUM/9)); done; echo $OUT
