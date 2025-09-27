@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(( $(echo $WATER | tr 'water' '01234') + $(echo $STIR | tr 'stir' '0123') )) | tr '0123456789' 'bestchol'
+echo $(( $(echo $WATER | fold -w1 | awk '{c=substr("water",index("water",$1),1)?index("water",$1)-1:0} END{print c}' ) + $(echo $STIR | fold -w1 | awk '{c=substr("stir",index("stir",$1),1)?index("stir",$1)-1:0} END{print c}' ) )) 
