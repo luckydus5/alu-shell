@@ -1,0 +1,365 @@
+# Ultimate Shell Scripting Learning Course
+
+**Instructor:** Julien Barbier
+**Duration:** Self-paced
+**Goal:** Master shell scripting on Linux, understand shell initialization files, variables, expansions, loops, conditions, parsing, and advanced shell techniques.
+
+---
+
+## Module 1: Introduction to Shell Scripting
+
+**Objectives:**
+
+* Understand what a shell is
+* Learn basic shell commands
+* Create simple scripts
+
+**Topics:**
+
+1. **What is a Shell?**
+
+   * Interface between user and OS
+   * Popular shells: `bash`, `zsh`, `sh`
+
+2. **First Script:**
+
+```bash
+#!/bin/bash
+# Prints Hello, user
+echo "Hello, $USER"
+```
+
+**Exercise:**
+
+* Create a script that prints your username and hostname.
+
+---
+
+## Module 2: Shell Initialization Files
+
+**Objectives:**
+
+* Understand shell configuration
+* Differentiate global vs user configuration
+
+**Topics:**
+
+* `/etc/profile` and `/etc/profile.d/` → system-wide
+* `~/.bashrc` → user-specific
+* Apply changes: `source ~/.bashrc`
+
+**Exercise:**
+
+* Add a custom alias `ll='ls -l'` and test.
+
+---
+
+## Module 3: Variables
+
+**Objectives:**
+
+* Local vs global variables
+* Special variables and parameters
+
+**Topics:**
+
+* Local variables: exist only in current shell session
+* Global variables: exported with `export`
+* Reserved variables: `HOME`, `PATH`, `PS1`
+* Special parameters: `$?`, `$#`, `$0`, `$1`, `$@`, `$*`
+
+**Exercise:**
+
+* Create a global variable `BEST=School`
+* Print `HOME`, `PATH`, `PS1`
+
+---
+
+## Module 4: Expansions
+
+**Objectives:**
+
+* Learn shell expansions and substitution
+
+**Topics:**
+
+* Variable expansion: `$VAR`
+* Command substitution: `$(command)` or `` `command` ``
+* Single quotes `' '` → literal, double quotes `" "` → expand variables
+* Arithmetic expansion: `$(( expression ))`
+
+**Exercise:**
+
+* Print sum of 128 + `$TRUEKNOWLEDGE`
+
+---
+
+## Module 5: Aliases
+
+**Objectives:**
+
+* Create command shortcuts
+
+**Topics:**
+
+```bash
+alias ll='ls -l'
+unalias ll  # remove alias
+\ls         # bypass alias
+```
+
+**Exercise:**
+
+* Create an alias `ls='rm *'` in a safe folder
+
+---
+
+## Module 6: Loops
+
+**Objectives:**
+
+* Automate repetitive tasks
+
+**Topics:**
+
+* For loop:
+
+```bash
+for i in 1 2 3; do
+  echo "Number $i"
+done
+```
+
+* While loop:
+
+```bash
+count=1
+while [ $count -le 5 ]; do
+  echo $count
+  count=$((count+1))
+done
+```
+
+* Until loop:
+
+```bash
+count=1
+until [ $count -gt 5 ]; do
+  echo $count
+  count=$((count+1))
+done
+```
+
+**Exercise:**
+
+* Print every other line of a file
+
+---
+
+## Module 7: Conditions
+
+**Objectives:**
+
+* Control script flow with conditions
+
+**Topics:**
+
+* If-else:
+
+```bash
+if [ -f myfile ]; then
+  echo "File exists"
+else
+  echo "File missing"
+fi
+```
+
+* Elif:
+
+```bash
+if [ $VAR -eq 1 ]; then
+  echo "One"
+elif [ $VAR -eq 2 ]; then
+  echo "Two"
+fi
+```
+
+* Case:
+
+```bash
+case $VAR in
+  start) echo "Starting";;
+  stop) echo "Stopping";;
+esac
+```
+
+* File test operators: `-f`, `-d`, `-r`, `-w`, `-x`
+* String comparison: `=`, `!=`
+* Numeric comparison: `-eq`, `-ne`, `-gt`, `-lt`
+
+**Exercise:**
+
+* Check if a file exists and is readable
+
+---
+
+## Module 8: Parsing and Text Processing
+
+**Objectives:**
+
+* Extract and manipulate text
+
+**Topics:**
+
+* `cut` command: extract fields
+
+```bash
+echo "user:x:1000:1000:User" | cut -d: -f1
+```
+
+* Loops + `read` for parsing
+
+**Exercise:**
+
+* Print all usernames from `/etc/passwd`
+
+---
+
+## Module 9: Shell Arithmetic & Base Conversions
+
+**Objectives:**
+
+* Perform calculations and convert number bases
+
+**Topics:**
+
+* Arithmetic: `$(( POWER / DIVIDE ))`
+* Base conversions using custom mappings
+* Example: convert binary to decimal
+
+**Exercise:**
+
+* Convert `$BINARY` variable from base 2 to decimal
+
+---
+
+## Module 10: Advanced Techniques
+
+**Objectives:**
+
+* Combine all skills into practical tasks
+
+**Topics & Exercises:**
+
+1. Print every other line from a file (no awk)
+2. Add custom-base numbers using `$WATER` + `$STIR`
+3. ROT13 encryption
+4. Print floating numbers with two decimal places
+5. Decimal to hexadecimal conversion
+6. Generate combinations of letters excluding specific ones
+
+**Exercise:**
+
+* Recreate all practice projects step by step, testing with `source` and environment variables
+
+---
+
+## Module 11: SSH Keys & Portability
+
+**Objectives:**
+
+* Create SSH keys
+* Make scripts portable
+
+**Topics:**
+
+* `ssh-keygen -t rsa -b 4096`
+* Use `#!/usr/bin/env bash` for portability over `#!/bin/bash`
+
+**Exercise:**
+
+* Create an SSH key pair and print the public key
+
+---
+
+## Module 12: Shellcheck & Best Practices
+
+**Objectives:**
+
+* Write clean, portable, and error-free scripts
+
+**Topics:**
+
+* Install and use Shellcheck: `shellcheck script.sh`
+* Always end scripts with a newline
+* Use comments on the second line to describe the script
+* Avoid `awk` unless specified
+
+**Exercise:**
+
+* Run Shellcheck on all scripts
+* Fix errors and warnings
+
+---
+
+## Practice Exercises
+
+**Beginner (50):**
+
+* Print "Hello World"
+* Create aliases
+* Print directories
+* Set and read variables
+* Basic arithmetic operations
+* List files
+* Test file existence
+* Loops over files
+* Use `cut`
+* Read user input
+  *(40 more similar tasks)*
+
+**Intermediate (50):**
+
+* Every other line of file
+* Convert binary to decimal
+* Decimal to hexadecimal
+* Add environment variables
+* ROT13 encode
+* Loops + conditions combined
+* Check file types
+* String manipulation
+* For/while loop exercises
+* Case statements exercises
+  *(40 more similar tasks)*
+
+**Advanced (50):**
+
+* Base addition with custom alphabet
+* Generate letter combinations
+* Floating point arithmetic
+* Advanced ROT13
+* Parse `/etc/passwd` for specific fields
+* Complex loops with nested conditions
+* Automation scripts
+* File backup with date stamps
+* Portability improvements
+* Shellcheck-verified scripts
+  *(40 more similar tasks)*
+
+---
+
+## Tips for Learning
+
+1. Use `vim` to edit scripts and save often
+2. Always start with `#!/usr/bin/env bash`
+3. Use comments to describe scripts
+4. Test scripts incrementally
+5. Use `source` for testing changes in `.bashrc`
+6. Run `shellcheck` for clean code
+7. Avoid destructive commands in production folders
+8. Break scripts into functions
+
+---
+
+This course combines all lessons, exercises, and practical tips from beginner to advanced shell scripting. By following it, you will gain deep understanding and hands-on mastery of Linux shell scripting.
+
