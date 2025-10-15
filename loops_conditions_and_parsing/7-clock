@@ -1,17 +1,19 @@
-#!/usr/bin/env bash
-# This script displays the time for 12 hours and 59 minutes
-# Using a while loop (for and until are forbidden)
+#!/bin/bash
+# Script: clock for 12 hours and 59 minutes
+# Using while loops only
 
 hour=0
 
 while [ $hour -le 12 ]
 do
-	echo "Hour: $hour"
-	minutes=1
-	while [ $minutes -le 59 ]
-	do
-		echo "$hour:$minutes"
-		((minutes++))
-	done
-	((hour++))
+  echo "Hour: $hour"
+  
+  minute=1
+  while [ $minute -le 59 ]
+  do
+    echo "$minute"
+    ((minute++))
+  done
+
+  ((hour++))
 done
