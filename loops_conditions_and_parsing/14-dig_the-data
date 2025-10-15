@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script parses an Apache access log and groups visitors by IP and HTTP code.
+# Format: OCCURRENCE_NUMBER IP HTTP_CODE
+# Requirements: Use awk, no loops (for, while, until), no cut.
+
+awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -nr
