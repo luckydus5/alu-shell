@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Script: list files in current directory
+# Display files in a list format
+# Show only the part of the name after the first dash
+# Do not display hidden files
+# Uses a for loop (while and until forbidden)
+
+for file in *; do
+  if [ -e "$file" ]; then
+    echo "${file#*-}"
+  fi
+done
