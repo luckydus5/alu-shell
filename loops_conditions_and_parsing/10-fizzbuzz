@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Script: FizzBuzz from 1 to 100
 # Displays numbers in a list format
 # Multiples of 3 → Fizz
